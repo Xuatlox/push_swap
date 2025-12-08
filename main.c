@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 14:02:20 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/05 14:28:21 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/12/08 15:54:24 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	a = NULL;
+	lst = NULL;
 	if (!parse(argv + 1, &lst))
 	{
 		write(2, "Error\n", 6);
 		ft_lstclear(&lst);
 		return (0);
 	}
-	sort(lst);
+	sort(&lst);
 	ft_lstclear(&lst);
 	return (0);
 }
