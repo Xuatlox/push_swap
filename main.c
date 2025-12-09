@@ -6,13 +6,11 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 14:02:20 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/08 15:54:24 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/12/09 15:46:14 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int main(int argc, char **argv)
+/*int main(int argc, char **argv)
 {
 	t_list	*lst;
 
@@ -28,4 +26,4 @@ int main(int argc, char **argv)
 	sort(&lst);
 	ft_lstclear(&lst);
 	return (0);
-}
+}*/

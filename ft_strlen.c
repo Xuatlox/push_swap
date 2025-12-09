@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ansimonn <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/05 11:34:43 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/11/12 13:04:18 by ansimonn         ###   ########.fr       */
+/*   Created: 2025/10/24 10:43:59 by ansimonn          #+#    #+#             */
+/*   Updated: 2025/10/28 10:59:57 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-int	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

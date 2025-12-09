@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 14:26:06 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/08 15:51:29 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/12/09 14:15:36 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,23 @@ static void	simplify(t_list **lst)
 	*lst = res;
 }
 
+static char	is_sorted(t_list *lst)
+{
+	while (lst->next)
+	{
+		if (lst->content > lst->next->content)
+			return (0);
+		lst = lst->next;
+	}
+	return (1);
+}
+
 void	sort(t_list **a)
 {
-	t_list	*b;
+	char	*res;
 
-	b = NULL;
+	if (is_sorted(*a))
+		return ;
 	simplify(a);
+	res = k_sort(a);
 }

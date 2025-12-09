@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 15:04:44 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/08 14:05:48 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/12/09 16:08:02 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ void	ft_lstclear(t_list **lst);
 int		ft_lstsize(const t_list *lst);
 char	parse(char **argv, t_list **a);
 void	sort(t_list **a);
+char	*k_sort(t_list *a);
 
 #endif
