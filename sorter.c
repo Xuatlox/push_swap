@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 14:26:06 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/10 16:29:07 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/12/11 15:24:54 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,22 +65,4 @@ void	sort(t_list **a)
 	ft_lstclear(&b);
 	write(1, res, ft_strlen(res));
 	free(res);
-}
-
-#include <stdio.h>
-
-int	main(int ac, char **av)
-{
-	t_list	*lst = NULL;
-	int		i;
-
-	if (ac < 2)
-		return (0);
-	i = 1;
-	while (i < ac)
-	{
-		ft_lstadd_back(&lst, ft_lstnew(atoi(av[i])));
-		++i;
-	}
-	sort(&lst);
 }

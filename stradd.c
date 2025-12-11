@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   stradd.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/05 14:02:20 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/11 15:29:59 by ansimonn         ###   ########.fr       */
+/*   Created: 2025/12/11 14:56:54 by ansimonn          #+#    #+#             */
+/*   Updated: 2025/12/11 14:57:25 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int ac, char **av)
+void	stradd(char **base, char *add)
 {
-	t_list	*lst = NULL;
+	char	*str;
+	size_t	i;
 
-	if (ac < 2)
-		return (0);
-	lst = NULL;
-	if (!parse(av + 1, &lst))
+	i = 0;
+	str = malloc((ft_strlen(*base) + ft_strlen(add) + 1) * sizeof(char));
+	if (!str)
+		return ;
+	while ((*base)[i])
 	{
-		write(2, "Error\n", 6);
-		ft_lstclear(&lst);
-		return (0);
+		str[i] = (*base)[i];
+		++i;
 	}
-	sort(&lst);
-	return (0);
+	while (*add)
+	{
+		str[i] = *add;
+		++add;
+		++i;
+	}
+	str[i] = 0;
+	free(*base);
+	*base = str;
 }

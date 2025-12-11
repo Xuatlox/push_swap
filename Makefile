@@ -1,28 +1,28 @@
-SRC = push_swap.c \
-		ft_printf.c \
-		ft_putchar_fd.c \
-		ft_putstr_fd.c \
-		ft_putnbr_fd.c \
-		ft_atoi.c \
+SRC = sorter.c \
+		k_sort.c \
+		k_sort_utils.c \
+		ft_lstclear.c \
+		ft_strlen.c \
+		ft_lstnew.c \
 		ft_lstadd_back.c \
+		ft_lstsize.c \
 		ft_lstlast.c \
-		ft_lstnew.c
-
+		stradd.c \
+		main.c \
+		parsing.c \
+		ft_atoi.c
 CFLAGS = -Wall -Werror -Wextra
 NAME = push_swap
-OBJ = $(SRC:.c=.o)
 .PHONY : all clean fclean re
 
 all : re
 
 $(NAME) : $(SRC)
-	$(CC) $(CFLAGS) -c $(SRC)
-	ar rcs $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(SRC)
 
 clean :
-	rm -rf $(OBJ)
+	rm -rf $(NAME)
 
 fclean : clean
-	rm -rf $(NAME)
 
 re : fclean $(NAME)
