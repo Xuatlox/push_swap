@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 14:02:20 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/11 15:29:59 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/12/11 18:33:21 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int ac, char **av)
 {
-	t_list	*lst = NULL;
+	t_list	*lst;
 
 	if (ac < 2)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 16:14:35 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/11 14:44:37 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/12/11 17:21:55 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void	rotate(t_list **lst, const char is_b, char **res)
 {
 	t_list	*tmp;
 
+	if (!(*lst)->next)
+		return ;
 	tmp = (*lst)->next;
 	(*lst)->next = NULL;
 	ft_lstlast(tmp)->next = *lst;
