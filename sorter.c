@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 14:26:06 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/11 15:53:23 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/12/12 16:30:37 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,15 @@ static char	is_sorted(t_list *lst)
 	return (1);
 }
 
+static void	display(char *res)
+{
+	while (*res)
+	{
+		write(1, res, 1);
+		res++;
+	}
+}
+
 void	sort(t_list **a)
 {
 	char	*res;
@@ -63,6 +72,6 @@ void	sort(t_list **a)
 	refill_a(a, &b, &res);
 	ft_lstclear(a);
 	ft_lstclear(&b);
-	write(1, res, ft_strlen(res));
+	display(res);
 	free(res);
 }

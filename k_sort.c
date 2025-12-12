@@ -6,33 +6,42 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:26:53 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/11 16:04:25 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/12/12 16:43:52 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static int sqrt(long nbr)
+{
+	double	i;
+
+	i = 0;
+	while (i * i < nbr)
+		++i;
+	return (i);
+}
+
 void	fill_b(t_list **a, t_list **b, char **res)
 {
-	int	i;
-	int	size;
-	int delta;
+	int		i;
+	long	size = ft_lstsize(*a);
+	int	delta;
 
 	*res = malloc(sizeof(char));
 	if (!*res)
 		return ;
-	size = ft_lstsize(*a);
 	**res = 0;
 	*b = NULL;
 	i = 0;
 	while (*a)
 	{
-		delta = size / 20 + 7;
+		delta = sqrt(size * 3);
 		if ((*a)->content <= i + delta)
 		{
 			push(a, b, 1, res);
-			--size;
-			if (*a && (*a)->content <= i)
+			size--;
+			if (*b && (*b)->content <= i)
 				rotate(b, 1, res);
 			i++;
 		}

@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 10:43:59 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/11 18:22:22 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/12/12 14:47:27 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,39 +20,46 @@ static unsigned int	nb_digits(const char *str)
 	return (i);
 }
 
-static char	add_digits(char **digits, long *res)
+static char	add_digits(char **digits, long *conv)
 {
+	while (**digits == '0')
+		++(*digits);
 	if (nb_digits(*digits) > 10)
 		return (0);
 	while (**digits >= '0' && **digits <= '9')
 	{
-		*res = *res * 10 + **digits - '0';
+		*conv = *conv * 10 + **digits - '0';
 		++(*digits);
 	}
-	if (**digits == ' ' || !**digits)
-		return (1);
-	return (0);
+	if (!(**digits == ' ' || !**digits))
+		return (0);
+	while (**digits == ' ')
+		++(*digits);
+	return (1);
 }
 
-char	ft_atoi(char **nptr, long *res)
+char	ft_atoi(char **nptr, int *res)
 {
 	int		sign;
+	long	conv;
 
 	sign = 1;
-	*res = 0;
-	while ((**nptr >= 9 && **nptr <= 13) || **nptr == ' ')
+	conv = 0;
+	while (**nptr == ' ')
 		++(*nptr);
 	if (**nptr == '-')
 		sign = -1;
 	if (**nptr == '+' || **nptr == '-')
-		++(*nptr);
-	while (**nptr == '0')
-		++(*nptr);
-	if (**nptr && add_digits(nptr, res))
 	{
-		if (sign * (*res) > 2147483647 || sign * (*res) < -2147483648)
+		if (*(*nptr + 1) < '0' || *(*nptr + 1) > '9')
 			return (0);
-		*res = sign * (*res);
+		++(*nptr);
+	}
+	if (**nptr && add_digits(nptr, &conv))
+	{
+		if (conv * sign > 2147483647 || conv * sign < -2147483648)
+			return (0);
+		*res = sign * conv;
 		return (1);
 	}
 	return (0);
