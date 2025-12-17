@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static char is_double(const int nb, t_list **list)
+static char	is_double(const int nb, t_list **list)
 {
 	t_list	*tmp;
 

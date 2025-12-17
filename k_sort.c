@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int sqrt(long nbr)
+static int	sqrt(long nbr)
 {
 	double	i;
 
@@ -25,12 +25,13 @@ static int sqrt(long nbr)
 void	fill_b(t_list **a, t_list **b, char **res)
 {
 	int		i;
-	long	size = ft_lstsize(*a);
-	int	delta;
+	long	size;
+	int		delta;
 
 	*res = malloc(sizeof(char));
 	if (!*res)
 		return ;
+	size = ft_lstsize(*a);
 	**res = 0;
 	*b = NULL;
 	i = 0;
@@ -82,17 +83,11 @@ void	refill_a(t_list **a, t_list **b, char **res)
 	{
 		i = find_max(*b);
 		if (i <= size / 2)
-			while (i)
-			{
+			while (i--)
 				rotate(b, 1, res);
-				--i;
-			}
 		else
-			while (i < size)
-			{
+			while (i++ < size)
 				reverse_rotate(b, res);
-				++i;
-			}
 		--size;
 		push(b, a, 0, res);
 	}
