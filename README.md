@@ -21,8 +21,8 @@ integers.
 
 - The stack b is empty.
 
-The goal is to sort the numbers in stack a in ascending order. To achieve this, you
-have the following operations at your disposal:
+The goal is to sort the numbers in stack a in ascending order. To achieve this, 
+the following operations are available:
 
 - sa (swap a): Swap the first 2 elements at the top of stack a.\
 Do nothing if there is only one element or none.
@@ -54,6 +54,9 @@ The last element becomes the first one.
 
 - rrr : rra and rrb at the same time.
 
+To reach the 100% completion on the project, the program needs to sort **100 random elements in less than 700
+average operations**, and **500 random elements in less than 5500 average operations**.
+
 ## Implementation
 
 I used the K-sort algorithm after some researches/discussions with other students because it is a good
@@ -67,6 +70,11 @@ a size proportionnal to its value, this would form the shape of a 'K' in the b s
 order. Because stack b is already in a 'K' shape, the next element to push to a at each iteration is
 supposed to be near to the top or the bottom of the stack, meaning we can reach it in a few rotations.
 
+This algorithm stays optimised between 10 and 1000 elements in the starting a stack, meaning its perfectly
+appropriate to use it in this project.
+
 # Instructions
+
+
 
 # Ressources
