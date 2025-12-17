@@ -2,11 +2,11 @@
 
 # Content
 
-- [Description](#description)
+### 1. [Description](#description)
 
-- [Instructions](#instructions)
+### 2. [Instructions](#instructions)
 
-- [Ressources](#ressources)
+### 3. [Ressources](#ressources)
 
 # Description
 
@@ -92,5 +92,11 @@ negative integers separated by spaces.
 
 # Ressources
 
-- I used [this tutorial](https://medium.com/@brakebein42/k-distribution-sort-applied-to-the-push-swap-problem-ae2d96d68376)
-to understand the purpose of the algorithm, which was very clear after.
+- I used [this gitbook](https://42-cursus.gitbook.io/guide/2-rank-02/push_swap) to help me find a good algorithm
+to work with and get a better understanding of the project in general.
+
+- I first took a look a [this website](https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a)
+but the algorithm wasn't really clear to me so i chose to change.
+
+- I finally used [this tutorial](https://medium.com/@brakebein42/k-distribution-sort-applied-to-the-push-swap-problem-ae2d96d68376)
+to understand the purpose of the algorithm, which was very clear to me after a quick read.
