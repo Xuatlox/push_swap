@@ -75,6 +75,22 @@ appropriate to use it in this project.
 
 # Instructions
 
+- You'll find a Makefile at the root of the project's repository, which will automatically compile all sources
+file and remove a previous compiled file if there was one existing by executing the `make` or `make re` command.
 
+- If you want to clean your already existing binary, you can simply execute the `make clean` or `make fclean`
+command.
+
+The binary will be created with the `push_swap` default name, but you can modify its name directly in the Makefile.
+
+To execute the program, simply execute `./push_swap ELEMENTS`, where ELEMENTS represents a list of positive or
+negative integers separated by spaces. 
+
+> [!WARNING]
+> If the elements you give to the program aren't valid, it will return an
+`Error` message. You can simply retry the same line with different arguments after this.
 
 # Ressources
+
+- I used [this tutorial](https://medium.com/@brakebein42/k-distribution-sort-applied-to-the-push-swap-problem-ae2d96d68376)
+to understand the purpose of the algorithm, which was very clear after.
