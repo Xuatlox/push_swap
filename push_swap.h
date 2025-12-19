@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 15:04:44 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/12 16:57:42 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/12/19 16:55:07 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,13 @@ int		ft_lstsize(const t_list *lst);
 char	parse(char **argv, t_list **a);
 void	sort(t_list **a);
 void	push(t_list **from, t_list **to, const char is_b, char **res);
-void	reverse_rotate(t_list **lst, char **res);
+void	reverse_rotate(t_list **lst, const char is_b, char **res);
 void	rotate(t_list **lst, const char is_b, char **res);
 void	fill_b(t_list **a, t_list **b, char **res);
 void	refill_a(t_list **a, t_list **b, char **res);
 void	stradd(char **base, char *add);
+void	iterative_sort(t_list **a, t_list **b, char **res);
+void	small_sort(t_list **a);
+void	push_min(t_list **a, t_list **b, t_list **res);
 
 #endif

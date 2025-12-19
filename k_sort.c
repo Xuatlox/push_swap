@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:26:53 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/12 16:43:52 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/12/19 13:45:55 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ void	refill_a(t_list **a, t_list **b, char **res)
 				rotate(b, 1, res);
 		else
 			while (i++ < size)
-				reverse_rotate(b, res);
+				reverse_rotate(b, 1, res);
 		--size;
 		push(b, a, 0, res);
 	}

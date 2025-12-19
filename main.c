@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 14:02:20 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/11 18:33:21 by ansimonn         ###   ########.fr       */
+/*   Updated: 2025/12/19 11:10:44 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int	main(int ac, char **av)
 		ft_lstclear(&lst);
 		return (0);
 	}
-	sort(&lst);
+	if (ft_lstsize(lst) < 6)
+		small_sort(&lst);
+	else
+		sort(&lst);
 	return (0);
 }

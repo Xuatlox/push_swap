@@ -1,6 +1,6 @@
-SRC = sorter.c \
+SRC = sort.c \
 		k_sort.c \
-		k_sort_utils.c \
+		sort_utils.c \
 		ft_lstclear.c \
 		ft_strlen.c \
 		ft_lstnew.c \
@@ -18,7 +18,7 @@ NAME = push_swap
 all : re
 
 $(NAME) : $(SRC)
-	$(CC) $(CFLAGS) -o $(NAME) $(SRC)
+	$(CC) $(CFLAGS) -o $(NAME) -g $(SRC)
 
 clean :
 	rm -rf $(NAME)
