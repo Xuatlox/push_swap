@@ -7,7 +7,6 @@ SRC = sort.c \
 		ft_lstadd_back.c \
 		ft_lstsize.c \
 		ft_lstlast.c \
-		stradd.c \
 		main.c \
 		parsing.c \
 		ft_atoi.c

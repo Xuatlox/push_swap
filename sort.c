@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 14:26:06 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/19 17:06:44 by ansimonn         ###   ########.fr       */
+/*   Updated: 2026/01/05 16:04:42 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,46 +53,28 @@ static char	is_sorted(t_list *lst)
 
 void	sort(t_list **a)
 {
-	char	*res;
 	t_list	*b;
 
 	if (is_sorted(*a))
 		return ;
 	simplify(a);
-	fill_b(a, &b, &res);
-	refill_a(a, &b, &res);
+	fill_b(a, &b);
+	refill_a(a, &b);
 	ft_lstclear(a);
 	ft_lstclear(&b);
-	while (*res)
-	{
-		write(1, res, 1);
-		res++;
-	}
-	free(res);
 }
 
 void	small_sort(t_list **a)
 {
-	char	*res;
 	t_list	*b;
 
 	b = NULL;
+	if (ft_lstsize(*a) == 2 && (*a)->content > (*a)->next->content)
+		swap(a, 0);
 	if (is_sorted(*a))
 		return ;
 	simplify(a);
-	res = malloc(sizeof(char));
-	if (!*res)
-		return ;
-	*res = 0;
-	while ((*a)->next->next->next)
-		push(a, &b, 1, &res);
-	iterative_sort(a, &b, &res);
+	simple_sort(a, &b);
 	ft_lstclear(a);
 	ft_lstclear(&b);
-	while (*res)
-	{
-		write(1, res, 1);
-		res++;
-	}
-	free(res);
 }

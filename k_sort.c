@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:26:53 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/19 13:45:55 by ansimonn         ###   ########.fr       */
+/*   Updated: 2026/01/05 11:11:38 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,13 @@ static int	sqrt(long nbr)
 	return (i);
 }
 
-void	fill_b(t_list **a, t_list **b, char **res)
+void	fill_b(t_list **a, t_list **b)
 {
 	int		i;
 	long	size;
 	int		delta;
 
-	*res = malloc(sizeof(char));
-	if (!*res)
-		return ;
 	size = ft_lstsize(*a);
-	**res = 0;
 	*b = NULL;
 	i = 0;
 	while (*a)
@@ -40,14 +36,14 @@ void	fill_b(t_list **a, t_list **b, char **res)
 		delta = sqrt(size * 3);
 		if ((*a)->content <= i + delta)
 		{
-			push(a, b, 1, res);
+			push(a, b, 1);
 			size--;
 			if (*b && (*b)->content <= i)
-				rotate(b, 1, res);
+				rotate(b, 1);
 			i++;
 		}
 		else
-			rotate(a, 0, res);
+			rotate(a, 0);
 	}
 }
 
@@ -73,7 +69,7 @@ static int	find_max(const t_list *lst)
 	return (max);
 }
 
-void	refill_a(t_list **a, t_list **b, char **res)
+void	refill_a(t_list **a, t_list **b)
 {
 	int		i;
 	int		size;
@@ -84,11 +80,11 @@ void	refill_a(t_list **a, t_list **b, char **res)
 		i = find_max(*b);
 		if (i <= size / 2)
 			while (i--)
-				rotate(b, 1, res);
+				rotate(b, 1);
 		else
 			while (i++ < size)
-				reverse_rotate(b, 1, res);
+				reverse_rotate(b, 1);
 		--size;
-		push(b, a, 0, res);
+		push(b, a, 0);
 	}
 }

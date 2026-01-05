@@ -6,13 +6,13 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 16:14:35 by ansimonn          #+#    #+#             */
-/*   Updated: 2025/12/19 17:30:27 by ansimonn         ###   ########.fr       */
+/*   Updated: 2026/01/05 17:47:40 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_list **from, t_list **to, const char is_b, char **res)
+void	push(t_list **from, t_list **to, const char is_b)
 {
 	t_list	*tmp;
 
@@ -21,12 +21,12 @@ void	push(t_list **from, t_list **to, const char is_b, char **res)
 	*to = *from;
 	*from = tmp;
 	if (is_b)
-		stradd(res, "pb\n");
+		write(1, "pb\n", 3);
 	else
-		stradd(res, "pa\n");
+		write(1, "pa\n", 3);
 }
 
-static void	swap(t_list **lst, const char is_b, char **res)
+void	swap(t_list **lst, const char is_b)
 {
 	t_list	*tmp;
 
@@ -35,28 +35,27 @@ static void	swap(t_list **lst, const char is_b, char **res)
 	tmp->next = *lst;
 	*lst = tmp;
 	if (is_b)
-		stradd(res, "sb\n");
+		write(1, "sb\n", 3);
 	else
-		stradd(res, "sa\n");
+		write(1, "sa\n", 3);
 }
 
-void	reverse_rotate(t_list **lst, const char is_b, char **res)
+void	reverse_rotate(t_list **lst, const char is_b)
 {
 	t_list	*tmp;
 
-	tmp = *lst;
-	while (tmp->next->next)
+	tmp = *lst;	while (tmp->next->next)
 		tmp = tmp->next;
 	tmp->next->next = *lst;
 	*lst = tmp->next;
 	tmp->next = NULL;
 	if (is_b)
-		stradd(res, "rrb\n");
+		write(1, "rrb\n", 4);
 	else
-		stradd(res, "rra\n");
+		write(1, "rra\n", 4);
 }
 
-void	rotate(t_list **lst, const char is_b, char **res)
+void	rotate(t_list **lst, const char is_b)
 {
 	t_list	*tmp;
 
@@ -67,22 +66,39 @@ void	rotate(t_list **lst, const char is_b, char **res)
 	ft_lstlast(tmp)->next = *lst;
 	*lst = tmp;
 	if (is_b)
-		stradd(res, "rb\n");
+		write(1, "rb\n", 3);
 	else
-		stradd(res, "ra\n");
+		write(1, "ra\n", 3);
 }
 
-void	iterative_sort(t_list **a, t_list **b, char **res)
+void	simple_sort(t_list **a, t_list **b)
 {
+	int		size;
+
+	size = ft_lstsize(*a);
+	while ((*a)->next->next->next)
+		push(a, b, 1);
 	if (!((*a)->content > (*a)->next->content
 			&& (*a)->next->content < (*a)->next->next->content
 			&& (*a)->content > (*a)->next->next->content)
 		&& !((*a)->content < (*a)->next->content
 			&& (*a)->next->content > (*a)->next->next->content
 			&& (*a)->content > (*a)->next->next->content))
-		swap(a, 0, res);
+		swap(a, 0);
 	if ((*a)->content > (*a)->next->content)
-		rotate(a, 0, res);
+		rotate(a, 0);
 	else if ((*a)->content > (*a)->next->next->content)
-		reverse_rotate(a, 0, res);
+		reverse_rotate(a, 0);
+	if ((*b)->next && (*b)->content > (*b)->next->content)
+		rotate(b, 1);
+	while (*b)
+	{
+		if ((*b)->content < ft_lstsize(*a))
+			while ((*a)->content < (*b)->content)
+				rotate(a, 0);
+		rotate(a, 0);
+		push(b, a, 0);
+	}
+	while ((*a)->content != 0)
+		rotate(a, 0);
 }
