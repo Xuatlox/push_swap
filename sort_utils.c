@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 16:14:35 by ansimonn          #+#    #+#             */
-/*   Updated: 2026/01/05 17:47:40 by ansimonn         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:19:23 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ void	reverse_rotate(t_list **lst, const char is_b)
 {
 	t_list	*tmp;
 
-	tmp = *lst;	while (tmp->next->next)
+	tmp = *lst;
+	while (tmp->next->next)
 		tmp = tmp->next;
 	tmp->next->next = *lst;
 	*lst = tmp->next;
@@ -71,19 +72,14 @@ void	rotate(t_list **lst, const char is_b)
 		write(1, "ra\n", 3);
 }
 
-void	simple_sort(t_list **a, t_list **b)
+void	simple_sort(t_list **a, t_list **b, int size)
 {
-	int		size;
-
-	size = ft_lstsize(*a);
-	while ((*a)->next->next->next)
-		push(a, b, 1);
 	if (!((*a)->content > (*a)->next->content
 			&& (*a)->next->content < (*a)->next->next->content
 			&& (*a)->content > (*a)->next->next->content)
 		&& !((*a)->content < (*a)->next->content
 			&& (*a)->next->content > (*a)->next->next->content
-			&& (*a)->content > (*a)->next->next->content))
+			&& (*a)->content > (*a)->next->next->content) && !is_sorted(*a))
 		swap(a, 0);
 	if ((*a)->content > (*a)->next->content)
 		rotate(a, 0);
@@ -93,11 +89,11 @@ void	simple_sort(t_list **a, t_list **b)
 		rotate(b, 1);
 	while (*b)
 	{
-		if ((*b)->content < ft_lstsize(*a))
-			while ((*a)->content < (*b)->content)
-				rotate(a, 0);
-		rotate(a, 0);
+		while ((size != (*b)->content && (*a)->content < (*b)->content)
+			|| ((*a)->content != 0 && size == (*b)->content))
+			rotate(a, 0);
 		push(b, a, 0);
+		++size;
 	}
 	while ((*a)->content != 0)
 		rotate(a, 0);

@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 14:26:06 by ansimonn          #+#    #+#             */
-/*   Updated: 2026/01/05 16:04:42 by ansimonn         ###   ########.fr       */
+/*   Updated: 2026/01/06 15:10:26 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	simplify(t_list **lst)
 	*lst = res;
 }
 
-static char	is_sorted(t_list *lst)
+char	is_sorted(t_list *lst)
 {
 	while (lst->next)
 	{
@@ -74,7 +74,9 @@ void	small_sort(t_list **a)
 	if (is_sorted(*a))
 		return ;
 	simplify(a);
-	simple_sort(a, &b);
+	while ((*a)->next->next->next)
+		push(a, &b, 1);
+	simple_sort(a, &b, 3);
 	ft_lstclear(a);
 	ft_lstclear(&b);
 }
