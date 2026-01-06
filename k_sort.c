@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static int	sqrt(long nbr)
+static int	sq_rt(long nbr)
 {
 	double	i;
 
@@ -33,7 +33,7 @@ void	fill_b(t_list **a, t_list **b)
 	i = 0;
 	while (*a)
 	{
-		delta = sqrt(size * 3);
+		delta = sq_rt(size * 3);
 		if ((*a)->content <= i + delta)
 		{
 			push(a, b, 1);

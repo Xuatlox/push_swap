@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 16:14:35 by ansimonn          #+#    #+#             */
-/*   Updated: 2026/01/06 15:19:23 by ansimonn         ###   ########.fr       */
+/*   Updated: 2026/01/06 17:20:41 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ void	simple_sort(t_list **a, t_list **b, int size)
 		rotate(a, 0);
 	else if ((*a)->content > (*a)->next->next->content)
 		reverse_rotate(a, 0);
+	if (!(*b))
+		return ;
 	if ((*b)->next && (*b)->content > (*b)->next->content)
 		rotate(b, 1);
 	while (*b)
