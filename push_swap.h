@@ -6,12 +6,15 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 15:04:44 by ansimonn          #+#    #+#             */
-/*   Updated: 2026/01/06 10:31:41 by ansimonn         ###   ########.fr       */
+/*   Updated: 2026/01/07 12:00:29 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# define IS_A_STACK 0
+# define IS_B_STACK 1
 
 # include <stdlib.h>
 # include <unistd.h>

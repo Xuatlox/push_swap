@@ -10,18 +10,21 @@ SRC = sort.c \
 		main.c \
 		parsing.c \
 		ft_atoi.c
+OBJ = $(SRC:.c=.o)
 CFLAGS = -Wall -Werror -Wextra
 NAME = push_swap
 .PHONY : all clean fclean re
 
-all : re
+all : $(NAME)
 
-$(NAME) : $(SRC)
-	$(CC) $(CFLAGS) -o $(NAME) -g $(SRC)
+$(NAME) : $(OBJ)
+	$(CC) $(CFLAGS) -c $(SRC)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 clean :
-	rm -rf $(NAME)
+	rm -rf $(OBJ)
 
 fclean : clean
+	rm -rf $(NAME)
 
 re : fclean $(NAME)

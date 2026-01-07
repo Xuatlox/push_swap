@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/09 11:26:53 by ansimonn          #+#    #+#             */
-/*   Updated: 2026/01/05 11:11:38 by ansimonn         ###   ########.fr       */
+/*   Updated: 2026/01/07 12:02:15 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ void	fill_b(t_list **a, t_list **b)
 		delta = sq_rt(size * 3);
 		if ((*a)->content <= i + delta)
 		{
-			push(a, b, 1);
+			push(a, b, IS_B_STACK);
 			size--;
 			if (*b && (*b)->content <= i)
-				rotate(b, 1);
+				rotate(b, IS_B_STACK);
 			i++;
 		}
 		else
-			rotate(a, 0);
+			rotate(a, IS_A_STACK);
 	}
 }
 
@@ -80,11 +80,11 @@ void	refill_a(t_list **a, t_list **b)
 		i = find_max(*b);
 		if (i <= size / 2)
 			while (i--)
-				rotate(b, 1);
+				rotate(b, IS_B_STACK);
 		else
 			while (i++ < size)
-				reverse_rotate(b, 1);
+				reverse_rotate(b, IS_B_STACK);
 		--size;
-		push(b, a, 0);
+		push(b, a, IS_A_STACK);
 	}
 }

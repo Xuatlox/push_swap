@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 16:14:35 by ansimonn          #+#    #+#             */
-/*   Updated: 2026/01/06 17:20:41 by ansimonn         ###   ########.fr       */
+/*   Updated: 2026/01/07 12:03:53 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,23 +80,23 @@ void	simple_sort(t_list **a, t_list **b, int size)
 		&& !((*a)->content < (*a)->next->content
 			&& (*a)->next->content > (*a)->next->next->content
 			&& (*a)->content > (*a)->next->next->content) && !is_sorted(*a))
-		swap(a, 0);
+		swap(a, IS_A_STACK);
 	if ((*a)->content > (*a)->next->content)
-		rotate(a, 0);
+		rotate(a, IS_A_STACK);
 	else if ((*a)->content > (*a)->next->next->content)
-		reverse_rotate(a, 0);
+		reverse_rotate(a, IS_A_STACK);
 	if (!(*b))
 		return ;
 	if ((*b)->next && (*b)->content > (*b)->next->content)
-		rotate(b, 1);
+		rotate(b, IS_B_STACK);
 	while (*b)
 	{
 		while ((size != (*b)->content && (*a)->content < (*b)->content)
 			|| ((*a)->content != 0 && size == (*b)->content))
-			rotate(a, 0);
-		push(b, a, 0);
+			rotate(a, IS_A_STACK);
+		push(b, a, IS_A_STACK);
 		++size;
 	}
 	while ((*a)->content != 0)
-		rotate(a, 0);
+		rotate(a, IS_A_STACK);
 }

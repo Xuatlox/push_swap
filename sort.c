@@ -6,7 +6,7 @@
 /*   By: ansimonn <ansimonn@student.42angouleme.f>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/05 14:26:06 by ansimonn          #+#    #+#             */
-/*   Updated: 2026/01/06 15:10:26 by ansimonn         ###   ########.fr       */
+/*   Updated: 2026/01/07 12:03:53 by ansimonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ void	sort(t_list **a)
 	t_list	*b;
 
 	if (is_sorted(*a))
+	{
+		ft_lstclear(a);
 		return ;
+	}
 	simplify(a);
 	fill_b(a, &b);
 	refill_a(a, &b);
@@ -70,12 +73,15 @@ void	small_sort(t_list **a)
 
 	b = NULL;
 	if (ft_lstsize(*a) == 2 && (*a)->content > (*a)->next->content)
-		swap(a, 0);
+		rotate(a, IS_A_STACK);
 	if (is_sorted(*a))
+	{
+		ft_lstclear(a);
 		return ;
+	}
 	simplify(a);
 	while ((*a)->next->next->next)
-		push(a, &b, 1);
+		push(a, &b, IS_B_STACK);
 	simple_sort(a, &b, 3);
 	ft_lstclear(a);
 	ft_lstclear(&b);
